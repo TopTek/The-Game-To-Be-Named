@@ -18,7 +18,9 @@ import javax.swing.KeyStroke;
 
 import com.organthia.tobenamedrpg.encounter.Encounter;
 import com.organthia.tobenamedrpg.encounter.RandomEncounter;
+import com.organthia.tobenamedrpg.encounter.tile.Tile;
 import com.organthia.tobenamedrpg.graphics.Render;
+import com.organthia.tobenamedrpg.graphics.SpriteSheet;
 import com.organthia.tobenamedrpg.input.InputAction;
 import com.organthia.tobenamedrpg.input.InputHandler;
 
