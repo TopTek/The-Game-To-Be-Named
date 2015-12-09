@@ -17,7 +17,6 @@ public class WaterTile extends Tile {
 		int spriteX = (int) Math.floor(grassTileIndex[x+y*w]/100);
 		int spriteY = (int) (grassTileIndex[x+y*w]-(Math.floor(grassTileIndex[x+y*w]/100)*100));
 		render.renderTiles(x << 4, y << 4, this, spriteX, spriteY);
-		System.out.println(spriteX);
 	}
 
 	public void initialize(Encounter encounter) {

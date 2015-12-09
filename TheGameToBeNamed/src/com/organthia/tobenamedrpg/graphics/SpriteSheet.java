@@ -12,19 +12,40 @@ public class SpriteSheet {
 	public final int WIDTH, HEIGHT;
 	public int[] pixels;
 
+	public static SpriteSheet nullSheet = new SpriteSheet(1, 1, 0);
+
+	// tiles
 	public static SpriteSheet tiles = new SpriteSheet("/textures/spritesheet.png", 256);
 	public static SpriteSheet grassTile = new SpriteSheet("/textures/GrassTile.png", 16);
 	public static SpriteSheet waterTile = new SpriteSheet("/textures/WaterTile.png", 1024);
 
+	// Encounters
+	public static SpriteSheet testSwag = new SpriteSheet("/textures/testSwag.png", 1000);
+
 	private Sprite[] sprites;
+
+	public SpriteSheet(int width, int height, int color) {
+		this.path = null;
+		this.SIZE = -1;
+		this.WIDTH = width;
+		this.HEIGHT = height;
+		pixels = new int[width * height];
+		for (int y = 0; y < HEIGHT; y++) {
+			for (int x = 0; x < WIDTH; x++) {
+				pixels[x + y * WIDTH] = color;
+			}
+		}
+	}
 
 	public SpriteSheet(SpriteSheet sheet, int x, int y, int width, int height, int spriteSize) {
 		int xx = x * spriteSize;
 		int yy = y * spriteSize;
 		int w = width * spriteSize;
 		int h = height * spriteSize;
-		if (width == height) SIZE = width;
-		else SIZE = -1;
+		if (width == height)
+			SIZE = width;
+		else
+			SIZE = -1;
 		WIDTH = w;
 		HEIGHT = h;
 		pixels = new int[w * h];
@@ -37,13 +58,14 @@ public class SpriteSheet {
 		}
 
 		int frame = 0;
-		sprites = new Sprite[width*height];
+		sprites = new Sprite[width * height];
 		for (int ya = 0; ya < height; ya++) {
 			for (int xa = 0; xa < width; xa++) {
 				int[] spritePixels = new int[spriteSize * spriteSize];
 				for (int y0 = 0; y0 < spriteSize; y0++) {
 					for (int x0 = 0; x0 < spriteSize; x0++) {
-						spritePixels[x0 + y0 * spriteSize] = pixels[(x0 + xa * spriteSize) + (y0 + ya * spriteSize) * WIDTH];
+						spritePixels[x0 + y0 * spriteSize] = pixels[(x0 + xa * spriteSize)
+								+ (y0 + ya * spriteSize) * WIDTH];
 					}
 				}
 				Sprite sprite = new Sprite(spritePixels, spriteSize, spriteSize);
