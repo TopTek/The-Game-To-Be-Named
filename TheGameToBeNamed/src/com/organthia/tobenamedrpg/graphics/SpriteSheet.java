@@ -20,7 +20,7 @@ public class SpriteSheet {
 	public static SpriteSheet waterTile = new SpriteSheet("/textures/WaterTile.png", 1024);
 
 	// Encounters
-	public static SpriteSheet testSwag = new SpriteSheet("/textures/testSwag.png", 1000);
+	public static SpriteSheet testSwag = new SpriteSheet("/textures/testSwag.png", 64);
 
 	private Sprite[] sprites;
 
