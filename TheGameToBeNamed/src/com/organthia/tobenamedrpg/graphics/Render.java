@@ -43,6 +43,18 @@ public class Render {
 		}
 	}
 
+	public void renderTileOverlay(int[] tileOverlay) {
+		int yp, xp = 0;
+		for (int y = 0; y < height; y++) {
+			yp = y + yOffset;
+			for (int x = 0; x < width; x++) {
+				xp = x + xOffset;
+				if (xp < 0 || xp >= (width<<4) || yp < 0 || yp >= (height<<4)) continue;
+				if(tileOverlay[xp + yp * (64<<4)]!=0) pixels[x + y * width] = tileOverlay[xp + yp * (64<<4)];
+			}
+		}
+	}
+
 	public void renderTiles(int xp, int yp, Tile tile, int xt, int yt) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -55,19 +67,20 @@ public class Render {
 				if (xa < -tile.sprite.tileWidth || xa >= width || ya < 0 || ya >= height) continue;
 				if (xx < 0 || xx >= tile.sprite.sheetWidth || yy < 0 || yy >= tile.sprite.sheetHeight) continue;
 				if (xa < 0) xa = 0;
-				pixels[xa + ya * width] = tile.sprite.pixels[xx + yy * 1024];
+				pixels[xa + ya * width] = tile.sprite.pixels[xx + yy * tile.sprite.sheetWidth];
 			}
 		}
 	}
 
+	// for testing purposes
 	public void renderTile(int xp, int yp, Tile tile) {
-		for (int y = 0; y < 16; y++) {
+		for (int y = 0; y < tile.sprite.tileHeight; y++) {
 			int ya = y + yp;
-			for (int x = 0; x < 16; x++) {
+			for (int x = 0; x < tile.sprite.tileWidth; x++) {
 				int xa = x + xp;
-				if (xa < -16 || xa >= width || ya < 0 || ya >= height) continue;
+				if (xa < -tile.sprite.tileWidth || xa >= width || ya < 0 || ya >= height) continue;
 				if (xa < 0) xa = 0;
-				pixels[xa + ya * width] = tile.sprite.pixels[(x + 16) + y * 128];
+				pixels[xa + ya * width] = tile.sprite.pixels[(x + tile.sprite.tileWidth) + y * tile.sprite.sheetWidth];
 			}
 		}
 	}

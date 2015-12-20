@@ -12,11 +12,15 @@ public class WaterTile extends Tile {
 		super(sprite);
 	}
 
-	public void render(int x, int y, Render render, Encounter encounter) {
+	/*public void render(int x, int y, Render render, Encounter encounter) {
 		int w = encounter.getWidth();
 		int spriteX = (int) Math.floor(grassTileIndex[x+y*w]/100);
 		int spriteY = (int) (grassTileIndex[x+y*w]-(Math.floor(grassTileIndex[x+y*w]/100)*100));
 		render.renderTiles(x << 4, y << 4, this, spriteX, spriteY);
+	}*/
+	
+	public void render(int x, int y, Render render){
+		render.renderTiles(x<<4, y<<4, this);
 	}
 
 	public void initialize(Encounter encounter) {

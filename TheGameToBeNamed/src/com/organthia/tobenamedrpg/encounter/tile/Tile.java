@@ -10,6 +10,7 @@ public class Tile {
 	public Sprite sprite;
 	public int encounterSize;
 
+	// Tiles
 	public static Tile voidTile = new VoidTile(Sprite.voidSprite);
 	public static Tile grassTile = new GrassTile(Sprite.grassTile);
 	public static Tile waterTile = new WaterTile(Sprite.waterTile);

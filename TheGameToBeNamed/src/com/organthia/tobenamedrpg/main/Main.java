@@ -21,6 +21,7 @@ import com.organthia.tobenamedrpg.encounter.ImageToEncounter;
 import com.organthia.tobenamedrpg.encounter.RandomEncounter;
 import com.organthia.tobenamedrpg.encounter.tile.Tile;
 import com.organthia.tobenamedrpg.graphics.Render;
+import com.organthia.tobenamedrpg.graphics.RotateImage;
 import com.organthia.tobenamedrpg.graphics.SpriteSheet;
 import com.organthia.tobenamedrpg.input.InputAction;
 import com.organthia.tobenamedrpg.input.InputHandler;
@@ -53,7 +54,8 @@ public class Main extends Canvas implements Runnable {
 		panel = (JPanel) frame.getContentPane();
 		input = new InputHandler();
 		encounter = new ImageToEncounter(SpriteSheet.testSwag.WIDTH, SpriteSheet.testSwag.HEIGHT, SpriteSheet.testSwag);
-
+		//encounter = new RandomEncounter(64, 64);
+		
 		frame.addFocusListener(input);
 		/*
 		frame.addKeyListener(input);

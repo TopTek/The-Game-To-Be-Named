@@ -2,6 +2,7 @@ package com.organthia.tobenamedrpg.encounter;
 
 import java.awt.Color;
 
+import com.organthia.tobenamedrpg.graphics.Sprite;
 import com.organthia.tobenamedrpg.graphics.SpriteSheet;
 
 public class ImageToEncounter extends Encounter{
@@ -21,8 +22,9 @@ public class ImageToEncounter extends Encounter{
 				if ("D15FEE".equals(hex))tiles[x + y * width] = 0;
 				}
 		}
-		
-		this.grassTileIndex = generateTileIndex(grassTileIndex, grassTileReturn, this.width, this.height);
+		int[] tileContinues = { waterTileReturn };
+		grassTileIndex = generateTileIndex(grassTileIndex, tileContinues, grassTileReturn, this.width, this.height);
+		grassTileOverlayPixels = generateTileOverlay(grassTileIndex, Sprite.grassTileOverlay, this.width, this.height);
 		
 		for(int y = 0; y< height; y++){
 			for(int x = 0; x< width; x++){

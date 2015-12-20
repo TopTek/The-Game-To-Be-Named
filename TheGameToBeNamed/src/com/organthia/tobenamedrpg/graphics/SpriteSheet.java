@@ -17,8 +17,13 @@ public class SpriteSheet {
 	// tiles
 	public static SpriteSheet tiles = new SpriteSheet("/textures/spritesheet.png", 256);
 	public static SpriteSheet grassTile = new SpriteSheet("/textures/GrassTile.png", 16);
-	public static SpriteSheet waterTile = new SpriteSheet("/textures/WaterTile.png", 1024);
+	//public static SpriteSheet waterTile = new SpriteSheet("/textures/WaterTile.png", 1024);
+	public static SpriteSheet waterTile = new SpriteSheet("/textures/WaterTile1.png", 16);
 
+	// Tile Overlays
+	
+	public static SpriteSheet grassTileOverlay = new SpriteSheet("/textures/GrassTileOverlay.png",32);
+	
 	// Encounters
 	public static SpriteSheet testSwag = new SpriteSheet("/textures/testSwag.png", 64);
 
